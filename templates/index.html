@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="indexContent" class="container">
+	<div class="row">
+	<div class="col-md-8">
+{% block content_title %}
+{% endblock %}
+
+<ul id="post-list" class="list-unstyled">
+{% for article in articles_page.object_list %}
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
+                {% include 'article_infos.html' %}
+                <div class="entry-summary"> {{ article.summary }} </div><!-- /.entry-summary -->
+        </article></li>
+        <hr>
+{% endfor %}
+</ul><!-- /#posts-list -->
+
+</div>
+
+<div class="col-md-4">
+	<div class="panel panel-default text-center">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">Categories</div>
+	  <!-- List group -->
+	<div class="list-group text-left">
+
+{% for cat, null in categories %}
+	{% if cat == category %}
+	<a href="{{ SITEURL }}/{{ cat.url }}" class="list-group-item active">{{ cat }}</a>
+	{% else %}
+	<a href="{{ SITEURL }}/{{ cat.url }}" class="list-group-item">{{ cat }}</a>
+	{% endif %}
+{% endfor %}
+	</div>
+	</div>
+</div>
+
+</div>
+{% include 'pagination.html' %}
+</section><!-- /#content -->
+{% endblock content %}

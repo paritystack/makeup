@@ -1,0 +1,35 @@
+<footer class="post-info">
+<ul class="list-inline">
+<li>
+        <abbr class="published" title="Published: {{ article.date.isoformat() }}">
+                <i class="fa fa-calendar"></i> {{ article.locale_date }}
+        </abbr>
+</li>
+<li>
+        {% if article.modified %}
+		<br />
+        <abbr class="modified" title="{{ article.modified.isoformat() }}">
+                Updated: {{ article.locale_modified }}
+        </abbr>
+        {% endif %}
+</li>
+
+	<li>
+        {% if article.authors %}
+        <address class="vcard author">
+                <i class="fa fa-user"></i> {% for author in article.authors %}
+                        <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+                {% endfor %}
+        </address>
+        {% endif %}
+</li>
+	<li>
+<i class="fa fa-folder"></i> <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a>{% endif %}</li>
+
+   <li> <i class="fa fa-clock-o"></i> {{ ((article.content.split()|length)/200)|round|int }} min read</li>
+	<li>{% include 'taglist.html' %}</li>
+</ul>
+
+{% import 'translations.html' as translations with context %}
+{{ translations.translations_for(article) }}
+</footer><!-- /.post-info -->

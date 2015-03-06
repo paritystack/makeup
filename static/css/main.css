@@ -1,0 +1,43 @@
+/* Imports */
+@import url("pygment.css");
+@import url("typogrify.css");
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/***** Global *****/
+/* Body */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.429;
+}
+
+#credits {
+	font-size: 10px;
+}
+
+/* Index.html */
+.entry-title {
+	font-size: 20px;
+	line-height: 1.5;
+	letter-spacing: .04rem;
+}
+
+.entry-summary {
+	font-size: 13px;
+	line-height: 1.5;
+	letter-spacing: .04rem;
+}
+
+/* Article.html */
+#article-entry-content {
+	letter-spacing: .02rem;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 17px;
+	line-height: 1.8;
+}
+
+
+.post-info {
+	font-size: 10px;
+}
+
